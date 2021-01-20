@@ -4,7 +4,6 @@ const Announce = require("../models/Announce");
 const router = express.Router();
 const uploader = require("../config/cloudinary");
 
-// http://localhost:4000/api/annouce
 router.get("/", (req, res, next) => {
   // Get all the burgers
   Announce.find({})
@@ -17,7 +16,6 @@ router.get("/", (req, res, next) => {
     });
 });
 
-// http://localhost:4000/api/announce/{some-id}
 router.get("/:id", (req, res, next) => {
   const announce = { ...req.body };
   if (req.file && req.file.path) {
@@ -33,7 +31,6 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
-// http://localhost:4000/api/announce/{some-id}
 router.patch(
   "/:id",
   requireAuth,
@@ -66,7 +63,6 @@ router.patch(
   }
 );
 
-// http://localhost:4000/api/announce
 router.post("/", requireAuth, uploader.single("image"), (req, res, next) => {
   const updateValues = { ...req.body };
 
@@ -89,7 +85,6 @@ router.post("/", requireAuth, uploader.single("image"), (req, res, next) => {
     .catch(next);
 });
 
-// http://localhost:4000/api/annouce/{some-id}
 router.delete("/:id", requireAuth, (req, res, next) => {
   Announce.findById(req.params.id)
     .then((announceDocument) => {
