@@ -9,7 +9,7 @@ const userSchema = new Schema({
   profileImg: {
     type: String,
     default:
-      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1610985526/andy-holmes-D6TqIa-tWRY-unsplash_jzeoth.jpg",
+      "https://res.cloudinary.com/dqlkhve6f/image/upload/v1610985639/FFF/andy-holmes-D6TqIa-tWRY-unsplash_nwlc6x.jpg",
   },
 });
 
